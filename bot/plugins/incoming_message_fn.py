@@ -65,6 +65,9 @@ async def incoming_compress_message_f(bot, update):
             if user.status == "kicked":
                await update.reply_text("🤭 Sorry Mate, You're **B A N N E D **")
                return
+         except:
+      pass
+    return
         except UserNotParticipant:
             #await update.reply_text(f"Join @{update_channel} To Use Me")
             await update.reply_text(
