@@ -12,7 +12,6 @@ class Config(object):
     AUTH_USERS = set(
         int(x) for x in get_config(
             "AUTH_USERS",
-            should_prompt=True
         ).split()
     )
     # the download location, where the HTTP Server runs
@@ -33,4 +32,4 @@ class Config(object):
     UN_FINISHED_PROGRESS_STR = get_config("UN_FINISHED_PROGRESS_STR", "⬛")
     LOG_FILE_ZZGEVC = get_config("LOG_FILE_ZZGEVC", "Log.txt")
       # because, https://t.me/c/1494623325/5603
-    SHOULD_USE_BUTTONS = get_config("SHOULD_USE_BUTTONS", False)
+    SHOULD_USE_BUTTONS = get_config("SHOULD_USE_BUTTONS", True)
