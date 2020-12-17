@@ -55,6 +55,9 @@ async def incoming_compress_message_f(bot, update):
         text="🤬 Reply to telegram media 🤬",
         reply_to_message_id=update.message_id
       )
+    except:
+      pass
+    return
     update_channel = "uniqbots"
     if update_channel:
         try:
@@ -71,9 +74,6 @@ async def incoming_compress_message_f(bot, update):
               ])
             )
             return
-    except:
-      pass
-    return
   target_percentage = 50
   isAuto = False
   if len(update.command) > 1:
