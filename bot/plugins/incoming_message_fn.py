@@ -55,6 +55,22 @@ async def incoming_compress_message_f(bot, update):
         text="🤬 Reply to telegram media 🤬",
         reply_to_message_id=update.message_id
       )
+    update_channel = 'uniqbots'
+    if update_channel:
+        try:
+            user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked":
+               await update.reply_text("🤭 Sorry Mate, You're **B A N N E D **")
+               return
+        except UserNotParticipant:
+            #await update.reply_text(f"Join @{update_channel} To Use Me")
+            await update.reply_text(
+                text="**Join My Updates Channel to use ME 😎 🤭**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+              ])
+            )
+            return
     except:
       pass
     return
