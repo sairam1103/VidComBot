@@ -56,7 +56,7 @@ class Localisation:
     USER_ADDED_TO_DB = "User <a href='tg://user?id={}'>{}</a> added to {} till {}."
     
     FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "⚠️ Already One Process going on. \n or \n A media already exists. \n  Please send /cancel to delete existing media. ⚠️"
-    
+    AFTER_SUCCESSFUL_UPLOAD_MSG = "hi"
     HELP_MESSAGE = get_config(
         "STRINGS_HELP_MESSAGE",
         "Hi am Video Compressor Bot \n\n1. Sent your telegram big video file \n2. Reply the file - /compress And Persentage \nEg:- <code>/compress 50</code> \n\nSupport Group :@Dx_Support"
