@@ -74,7 +74,7 @@ if __name__ == "__main__" :
     # CANCEL command
     incoming_cancel_message_handler = MessageHandler(
         incoming_cancel_message_f,
-        filters=Filters.command([Command.CANCEL])
+        filters=Filters.command([Command.CANCEL])  & Filters.chat(chats=AUTH_USERS)
     )
     app.add_handler(incoming_cancel_message_handler)
 
@@ -95,7 +95,8 @@ if __name__ == "__main__" :
     # Telegram command to upload LOG files
     upload_log_f_handler = MessageHandler(
         upload_log_file,
-        filters=Filters.command([Command.UPLOAD_LOG_FILE])   )
+        filters=Filters.command([Command.UPLOAD_LOG_FILE])  & Filters.chat(chats=AUTH_USERS)
+    )
     app.add_handler(upload_log_f_handler)
     
     call_back_button_handler = CallbackQueryHandler(
