@@ -1,8 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K / Akshay C
 
-# the logging things
 import logging
 logging.basicConfig(
     level=logging.DEBUG,
@@ -52,7 +48,7 @@ async def incoming_compress_message_f(bot, update):
     try:
       await bot.send_message(
         chat_id=update.chat.id,
-        text="🤬 Reply to telegram media 🤬",
+        text="馃が Reply to telegram media 馃が",
         reply_to_message_id=update.message_id
       )
     except:
@@ -63,15 +59,14 @@ async def incoming_compress_message_f(bot, update):
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
-               await update.reply_text("🤭 Sorry Mate, You're **B A N N E D **")
+               await update.reply_text("馃き Sorry Mate, You're **B A N N E D **")
                return
-         except:
-      pass
+        except:
+          pass
     return
         except UserNotParticipant:
-            #await update.reply_text(f"Join @{update_channel} To Use Me")
             await update.reply_text(
-                text="**Join My Updates Channel to use ME 😎 🤭**",
+                text="**Join My Updates Channel to use ME 馃槑 馃き**",
                 reply_markup=InlineKeyboardMarkup([
                     [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
@@ -87,7 +82,7 @@ async def incoming_compress_message_f(bot, update):
         try:
           await bot.send_message(
             chat_id=update.chat.id,
-            text="🤬 Value should be 10 - 90",
+            text="馃が Value should be 10 - 90",
             reply_to_message_id=update.message_id
           )
           return
@@ -173,7 +168,7 @@ async def incoming_compress_message_f(bot, update):
     if duration is None or bitrate is None:
       try:
         await sent_message.edit_text(                
-          text="⚠️ Getting video meta data failed ⚠️"                
+          text="鈿狅笍 Getting video meta data failed 鈿狅笍"                
         )
       except:
           pass          
@@ -246,7 +241,7 @@ async def incoming_compress_message_f(bot, update):
       delete_downloads()
       try:
         await sent_message.edit_text(                    
-          text="⚠️ Compression failed ⚠️"               
+          text="鈿狅笍 Compression failed 鈿狅笍"               
         )
       except:
         pass
@@ -255,7 +250,7 @@ async def incoming_compress_message_f(bot, update):
     delete_downloads()
     try:
       await sent_message.edit_text(                    
-        text="⚠️ Failed Downloaded path not exist ⚠️"               
+        text="鈿狅笍 Failed Downloaded path not exist 鈿狅笍"               
       )
     except:
       pass
@@ -267,11 +262,11 @@ async def incoming_cancel_message_f(bot, update):
   if os.path.exists(status):
     inline_keyboard = []
     ikeyboard = []
-    ikeyboard.append(InlineKeyboardButton("Yes 🚫", callback_data=("fuckingdo").encode("UTF-8")))
-    ikeyboard.append(InlineKeyboardButton("No 🤗", callback_data=("fuckoff").encode("UTF-8")))
+    ikeyboard.append(InlineKeyboardButton("Yes 馃毇", callback_data=("fuckingdo").encode("UTF-8")))
+    ikeyboard.append(InlineKeyboardButton("No 馃", callback_data=("fuckoff").encode("UTF-8")))
     inline_keyboard.append(ikeyboard)
     reply_markup = InlineKeyboardMarkup(inline_keyboard)
-    await update.reply_text("Are you sure? 🚫 This will stop the compression", reply_markup=reply_markup, quote=True)
+    await update.reply_text("Are you sure? 馃毇 This will stop the compression", reply_markup=reply_markup, quote=True)
   else:
     delete_downloads()
     await bot.send_message(
