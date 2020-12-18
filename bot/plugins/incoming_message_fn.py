@@ -43,35 +43,36 @@ async def incoming_start_message_f(bot, update):
     )
     
 async def incoming_compress_message_f(bot, update):
-  """/compress command"""
-  if update.reply_to_message is None:
-    try:
-      await bot.send_message(
-        chat_id=update.chat.id,
-        text="馃が Reply to telegram media 馃が",
-        reply_to_message_id=update.message_id
-      )
+    """/compress command"""
+    user = await bot.get_chat_member("CrazyBotsz", update.chat.id)
+    if user.status == "kicked":
+       await update.reply_text("🤭 Sorry Dude, You are <b>B A N N E D 🤣🤣🤣<b>")
+       return
     except:
-      pass
+        pass
     return
-    update_channel = "uniqbots"
-    if update_channel:
-        try:
-            user = await bot.get_chat_member(update_channel, update.chat.id)
-            if user.status == "kicked":
-               await update.reply_text("馃き Sorry Mate, You're **B A N N E D **")
-               return
-        except:
-          pass
-    return
-        except UserNotParticipant:
-            await update.reply_text(
-                text="**Join My Updates Channel to use ME 馃槑 馃き**",
-                reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
-              ])
-            )
-            return
+    if UserNotParticipant:
+        #await update.reply_text(f"Join @{update_channel} To Use Me")
+        await update.reply_text(
+            text="<b>Join My Updates Channel to use ME 😎 🤭</b>",
+            reply_markup=InlineKeyboardMarkup([
+                [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+          ])
+        )
+        return
+    except Exception:
+        await update.reply_text("Something Wrong. Contact my Support Group")
+        return
+    if update.reply_to_message is None:
+      try:
+        await bot.send_message(
+        chat_id=update.chat.id,
+        text="🤬 Reply to telegram media 🤬",
+        reply_to_message_id=update.message_id
+        )
+      except:
+        pass
+      return
   target_percentage = 50
   isAuto = False
   if len(update.command) > 1:
